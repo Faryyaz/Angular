@@ -29,3 +29,5 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 ```
 
 ## basically the above code bootstrap all the module in << app.module.ts >> into our app
+
+# Angular in the end is a JS framework changing the DOM('HTML') at runtime!
