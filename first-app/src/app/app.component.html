@@ -2,6 +2,11 @@
     <div class="row">
         <div class="col-12">
             <h3 class="title">Main APP</h3>
+            <app-customer (newCustomer)="onCustomerAdded($event)"></app-customer>
+            <app-customer-list 
+            *ngFor="let customer of customers"
+            [customer] = "customer"
+            ></app-customer-list>
             <hr>
             <app-servers></app-servers>
             <app-alert-success></app-alert-success>

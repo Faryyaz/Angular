@@ -1,0 +1,16 @@
+<h4>Add a new customer</h4>
+<form action="/action_page.php" class="mb-3">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newName">
+  </div>
+  <div class="form-group">
+    <label for="age">Age:</label>
+    <input type="text" class="form-control" id="age" name="age" [(ngModel)]="newAge">
+  </div>
+  <div class="form-group">
+    <label for="gender">Gender:</label>
+    <input type="text" class="form-control" id="gender" name="gender" [(ngModel)]="newGender">
+  </div>
+  <button type="button" (click)="onAddCustomer()" class="btn btn-primary">Submit</button>
+</form>
