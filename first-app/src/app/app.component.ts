@@ -8,9 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   name = 'Fary';
   customers = [
-    // {name: 'Tim', age: 29, gender: 'Male'},
-    // {name: 'Tom', age: 29, gender: 'Male'},
-    // {name: 'Jane', age: 32, gender: 'Female'}
+    {name: 'Tim', age: 29, gender: 'Male'},
+    {name: 'Tom', age: 29, gender: 'Male'}
   ];
 
   onCustomerAdded(customerData: {name: string, age: number, gender: string} ){
