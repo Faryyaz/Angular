@@ -8,3 +8,4 @@
   encapsulation: ViewEncapsulation.None // apply css to whole application
 })
 ```
+## ViewEncapsulation.Emulated works as ViewEncapsulation.Native except that native is browser dependent. If the browser support it, then native can be used
