@@ -12,6 +12,7 @@ export class AppComponent {
     {name: 'Tom', age: 29, gender: 'Male'}
   ];
   gameValue = 0;
+  switchValue = 20;
 
   onCustomerAdded(customerData: {name: string, age: number, gender: string} ){
     this.customers.push({

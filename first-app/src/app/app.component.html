@@ -20,6 +20,14 @@
             <p highlight>Custom Directive Highlight</p>
             <p appBetterHighlight>Better DIrective highlight</p>
             <p appAlternateHighlight [defaultColor]="'indigo'" [highlightColor]="'red'">Using Host Binding to highlight</p>
+
+            <div [ngSwitch]="switchValue">
+                <p *ngSwitchCase="20">Value is 20</p>
+                <p *ngSwitchCase="10">Value is 10</p>
+                <p *ngSwitchCase="30">Value is 30</p>
+                <p *ngSwitchDefault>Value is Default</p>
+            </div>
+
         </div>
     </div>
 </div>
