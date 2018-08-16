@@ -11,6 +11,7 @@ export class AppComponent {
     {name: 'Tim', age: 29, gender: 'Male'},
     {name: 'Tom', age: 29, gender: 'Male'}
   ];
+  gameValue = 0;
 
   onCustomerAdded(customerData: {name: string, age: number, gender: string} ){
     this.customers.push({
@@ -18,6 +19,10 @@ export class AppComponent {
       age: customerData.age,
       gender: customerData.gender
     });
+  }
+
+  onValueChanged(gameData: {numValue: number}){
+    this.gameValue = gameData.numValue;
   }
 
 }
