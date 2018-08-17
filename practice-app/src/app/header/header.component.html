@@ -6,13 +6,13 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Recipes
+      <li class="nav-item" [ngClass]="{ 'active': menuToggled === 'recipes' ? 'active' : '' }">
+        <a class="nav-link" href="#" (click)="onChangeMenu('recipes')">Recipes
           <span class="sr-only">(current)</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Shopping List</a>
+      <li class="nav-item" [ngClass]="{ 'active': menuToggled === 'shopping' ? 'active' : '' }">
+        <a class="nav-link" href="#" (click)="onChangeMenu('shopping')">Shopping List</a>
       </li>
     </ul>
     <ul class="navbar-nav navbar-right">
