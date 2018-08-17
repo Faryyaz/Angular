@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Recipe } from '../../recipe.model';
 
 @Component({
@@ -7,10 +7,15 @@ import { Recipe } from '../../recipe.model';
   styleUrls: ['./recipe-item.component.scss']
 })
 export class RecipeItemComponent implements OnInit {
+  @Output() selected = new EventEmitter<void>();
   @Input('recipeItems') recipe: Recipe;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSelectedRecipe(){
+    this.selected.emit();
   }
 
 }
