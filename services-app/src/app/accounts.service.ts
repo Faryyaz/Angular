@@ -1,4 +1,8 @@
-export class AccountsService{
+import { LoggingService } from "./logging.service";
+import { Injectable } from "@angular/core";
+
+@Injectable() // to inject a service into a service
+export class AccountsService {
     accounts = [
         {
           name: 'Master Account',
@@ -13,12 +17,16 @@ export class AccountsService{
           status: 'unknown'
         }
       ];
+
+      constructor(private loggingService: LoggingService){}
     
       addAccount(name: string, status: string) {
         this.accounts.push({name: name, status: status});
+        this.loggingService.logServiceStatus(status);
       }
 
       updateStatus(id: number, status: string){
         this.accounts[id].status = status;
+        this.loggingService.logServiceStatus(status);
       }
 }
