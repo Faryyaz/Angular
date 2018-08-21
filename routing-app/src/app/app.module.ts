@@ -16,7 +16,8 @@ import { Routes, RouterModule } from '@angular/router';
 const appRoutes: Routes =[
   {path: '', component: HomeComponent},
   {path: 'servers', component: ServersComponent},
-  {path: 'users', component: UsersComponent}
+  {path: 'users', component: UsersComponent},
+  {path: 'users/:id/:name', component: UserComponent} // pass parameter through the url using colon :
 ];
 
 @NgModule({
