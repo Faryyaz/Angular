@@ -3,7 +3,7 @@
     <div class="list-group">
       <a
         [routerLink]="['/servers', server.id]"
-        [queryParams]="{allowEdit: '1'}"
+        [queryParams]="{allowEdit: server.id === 3 ? '1' : '0'}"
         [fragment]="'loading'"
         class="list-group-item"
         *ngFor="let server of servers">
@@ -12,7 +12,6 @@
     </div>
   </div>
   <div class="col-xs-12 col-sm-4">
-    <button class="btn btn-danger" (click)="onServerReload()">Reload Server</button>
     <router-outlet></router-outlet>
   </div>
 </div>
