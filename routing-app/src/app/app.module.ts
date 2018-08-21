@@ -18,6 +18,7 @@ const appRoutes: Routes =[
   {path: 'servers', component: ServersComponent},
   {path: 'users', component: UsersComponent},
   {path: 'users/:id/:name', component: UserComponent}, // pass parameter through the url using colon :
+  {path: 'servers/:id', component: ServerComponent},
   {path: 'servers/:id/edit', component: EditServerComponent}
 ];
 
