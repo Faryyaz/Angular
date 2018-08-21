@@ -17,7 +17,8 @@ const appRoutes: Routes =[
   {path: '', component: HomeComponent},
   {path: 'servers', component: ServersComponent},
   {path: 'users', component: UsersComponent},
-  {path: 'users/:id/:name', component: UserComponent} // pass parameter through the url using colon :
+  {path: 'users/:id/:name', component: UserComponent}, // pass parameter through the url using colon :
+  {path: 'servers/:id/edit', component: EditServerComponent}
 ];
 
 @NgModule({
