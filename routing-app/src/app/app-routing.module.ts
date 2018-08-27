@@ -9,18 +9,26 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
 import { Routes, RouterModule } from "../../node_modules/@angular/router";
 import { AuthGuardService } from "./auth-guard.service";
 
-const appRoutes: Routes =[
-    {path: '', component: HomeComponent},
-    {path: 'servers', canActivate: [AuthGuardService], component: ServersComponent, children: [
-      {path: ':id', component: ServerComponent},
-      {path: ':id/edit', component: EditServerComponent}
-    ]},
-    {path: 'users', component: UsersComponent, children: [
-      {path: ':id/:name', component: UserComponent}, // pass parameter through the url using colon :
-    ]},
-    {path: 'not-found', component: PageNotFoundComponent},
-    {path: '**', redirectTo: '/not-found'} // should always be last in the array. if url is not found then 404 and redirect to path
-  ];
+const appRoutes: Routes = [
+    { path: '', component: HomeComponent },
+    {
+        path: 'servers',
+        // canActivate: [AuthGuardService],
+        canActivateChild: [AuthGuardService],
+        component: ServersComponent,
+        children: [
+            { path: ':id', component: ServerComponent },
+            { path: ':id/edit', component: EditServerComponent }
+        ]
+    },
+    {
+        path: 'users', component: UsersComponent, children: [
+            { path: ':id/:name', component: UserComponent }, // pass parameter through the url using colon :
+        ]
+    },
+    { path: 'not-found', component: PageNotFoundComponent },
+    { path: '**', redirectTo: '/not-found' } // should always be last in the array. if url is not found then 404 and redirect to path
+];
 
 @NgModule({
     imports: [
