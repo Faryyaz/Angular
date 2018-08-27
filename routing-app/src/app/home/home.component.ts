@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FakeAuthService } from '../fake-auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private fakeAuthService: FakeAuthService) { }
 
   ngOnInit() {
   }
@@ -21,6 +22,14 @@ export class HomeComponent implements OnInit {
         queryParams: {allowEdit: '1'},
         fragment: 'loading'
       });
+  }
+
+  onLogIn() {
+    this.fakeAuthService.login();
+  }
+
+  onLogOut() {
+    this.fakeAuthService.logout();
   }
 
 }
