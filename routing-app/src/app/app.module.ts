@@ -16,6 +16,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { FakeAuthService } from './fake-auth.service';
 import { AuthGuardService } from './auth-guard.service';
 import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { ServerResolver } from './servers/server/server-resolver.service';
 
 
 
@@ -28,7 +30,8 @@ import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.s
     UserComponent,
     EditServerComponent,
     ServerComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.s
     HttpModule,
     AppRoutingModule
   ],
-  providers: [ServersService, FakeAuthService, AuthGuardService, CanDeactivateGuard],
+  providers: [ServersService, FakeAuthService, AuthGuardService, CanDeactivateGuard, ServerResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

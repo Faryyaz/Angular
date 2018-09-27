@@ -9,6 +9,8 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
 import { Routes, RouterModule } from "../../node_modules/@angular/router";
 import { AuthGuardService } from "./auth-guard.service";
 import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
+import { ErrorPageComponent } from "./error-page/error-page.component";
+import { ServerResolver } from "./servers/server/server-resolver.service";
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },
@@ -18,7 +20,7 @@ const appRoutes: Routes = [
         canActivateChild: [AuthGuardService],
         component: ServersComponent,
         children: [
-            { path: ':id', component: ServerComponent },
+            { path: ':id', component: ServerComponent, resolve: {server: ServerResolver} },
             { path: ':id/edit', component: EditServerComponent, canDeactivate: [CanDeactivateGuard] }
         ]
     },
@@ -27,7 +29,8 @@ const appRoutes: Routes = [
             { path: ':id/:name', component: UserComponent }, // pass parameter through the url using colon :
         ]
     },
-    { path: 'not-found', component: PageNotFoundComponent },
+    // { path: 'not-found', component: PageNotFoundComponent },
+    { path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'} },
     { path: '**', redirectTo: '/not-found' } // should always be last in the array. if url is not found then 404 and redirect to path
 ];
 
