@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { interval } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { interval, Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 
@@ -9,17 +9,20 @@ import { Observer } from 'rxjs/Observer';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
+
+  numberSubsc: Subscription;
+  myCustomSubsc: Subscription;
 
   constructor() { }
 
   ngOnInit() {
-    // const myNumbers = interval(1000);
-    // myNumbers.subscribe(
-    //   (number: number) => {
-    //     console.log(number);
-    //   }
-    // );
+    const myNumbers = interval(1000);
+    this.numberSubsc = myNumbers.subscribe(
+      (number: number) => {
+        console.log(number);
+      }
+    );
 
     const myObservable = Observable.create(
       (observer: Observer<string>) => {
@@ -36,12 +39,19 @@ export class HomeComponent implements OnInit {
       }
     );
 
-    myObservable.subscribe(
+    this. myCustomSubsc = myObservable.subscribe(
       (data: string) => { console.log(data); },
       (error: string) => { console.log(error);  },
       () => { console.log( 'completed' ); }
     );
 
+  }
+
+  ngOnDestroy() {
+    // destroy the observable when leaving this component by changing url for e.g
+
+    this.myCustomSubsc.unsubscribe();
+    this.numberSubsc.unsubscribe();
   }
 
 }
