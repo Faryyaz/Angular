@@ -55,6 +55,9 @@ export class AppComponent {
     this.user.secret = this.userForm.value.secret;
     this.user.answer = this.userForm.value.answer;
     this.user.gender = this.userForm.value.gender;
+
+    // reset the form and clear all data
+    this.userForm.reset();
   }
 
 }
