@@ -1,0 +1,15 @@
+<h1>Form Test</h1>
+Username: <input type="text" class="form-control"
+            [(ngModel)]="userName"
+            placeholder="Input Username Here!">
+
+<p>
+  {{ userName }}
+</p>
+<hr>
+<button class="btn btn-primary"
+  [disabled]="isUserNameSet()"
+  (click)="clearInput()"
+>
+  Reset
+</button>

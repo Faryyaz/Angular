@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3 class="title">Main APP</h3>
+            <app-game-control (changeGameValue)="onValueChanged($event)"></app-game-control>
+            <app-odd [oddValue]="gameValue"></app-odd>
+            <app-even [evenValue]="gameValue"></app-even>
+            <hr>
+            <app-customer (newCustomer)="onCustomerAdded($event)"></app-customer>
+            <app-customer-list
+            [customers] = "customers"
+            ></app-customer-list>
+            <hr>
+            <app-servers></app-servers>
+            <app-alert-success></app-alert-success>
+            <app-alert-warning></app-alert-warning>
+            <br>
+            <hr>
+            <app-user></app-user>
+            <p highlight>Custom Directive Highlight</p>
+            <p appBetterHighlight>Better DIrective highlight</p>
+            <p appAlternateHighlight [defaultColor]="'indigo'" [highlightColor]="'red'">Using Host Binding to highlight</p>
+
+            <div [ngSwitch]="switchValue">
+                <p *ngSwitchCase="20">Value is 20</p>
+                <p *ngSwitchCase="10">Value is 10</p>
+                <p *ngSwitchCase="30">Value is 30</p>
+                <p *ngSwitchDefault>Value is Default</p>
+            </div>
+
+        </div>
+    </div>
+</div>
